@@ -13,11 +13,17 @@ const defaultProps = {
 
 const Image = (props) => {
 	const {
+		id,
 		src,
 		onClick,
 	} = props;
+
+	const clickHandle = () => {
+		onClick(id);
+	}
+
 	return (
-		<Wrapper onClick={onClick} src={src}/>
+		<Wrapper onClick={clickHandle} src={src}/>
 	);
 };
 

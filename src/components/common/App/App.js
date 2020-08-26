@@ -1,46 +1,54 @@
-import React, { useState } from "react";
+import React from "react";
+
+import { connect } from "react-redux";
 
 import '../../../global.css';
 
-import { Wrapper, Header, AppInner, Footer } from "./App.styled";
+import { Wrapper, Header, AppInner, Footer, SpinnerWrapper } from "./App.styled";
 
-import Image from "../Image";
+import Spinner from "../../core/Spinner";
+
 import ModalImage from "../../common/ModalImage";
+import Galary from "../../common/Galary";
 
+const App = (props) =>  {
+    //const [opened, setOpened] = useState(null);
 
-const App = () =>  {
-    const [opened, setOpened] = useState(null);
+    // const onOpenImage = (id) => {
+    //     setOpened(true);
+    // };
+    // const onCloseModal = () => {
+    //     setOpened(null);
+    // }
 
-    const onOpenImage = (id) => {
-        setOpened(true);
-    };
-    const onCloseModal = () => {
-        setOpened(null);
-    }
+    const {
+        modal,
+        galaryLoader,
+    } = props;
+
     return (
-        <Wrapper>
-            <Header>
-                Test App
-            </Header>
-            <AppInner>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-                <Image onClick={onOpenImage} src="https://picsum.photos/id/237/300/200"/>
-
-            </AppInner>
-            <Footer>
-            © 2018-2019
-            </Footer>
-            {opened && <ModalImage onClose={onCloseModal}>
-
-            </ModalImage>}
-        </Wrapper>
+            <Wrapper>
+                <Header>
+                    Test App
+                </Header>
+                <AppInner>
+                    <Galary />
+                    {galaryLoader && <SpinnerWrapper><Spinner /></SpinnerWrapper>}
+                </AppInner>
+                <Footer>
+                    © 2018-2019
+                </Footer>
+                {modal && <ModalImage>
+                    </ModalImage>}
+            </Wrapper>
     );
+};
+
+const mapStateToProps = state => {
+	return {
+        modal: state.modal,
+        galaryLoader: state.galaryLoader,
+	}
 }
 
-
-export default App;
+export default connect(mapStateToProps, null)(App);

@@ -6,7 +6,7 @@ export const Wrapper = styled.img.attrs(({src}) => ({src: src, width: "300", hei
 	width: 100%;
 	height: auto;
 	margin: 10px;
-	@media ${devices.tablet} {
+	@media ${devices.mobileL} {
 		width: calc(50% - 20px);
 	}
 	@media ${devices.laptop} {

@@ -21,6 +21,7 @@ export const AppInner = styled.div`
 	height: calc(100% - 56px - 56px);
 	overflow-x: hidden;
 	overflow-y: auto;
+	position: relative;
 `;
 
 export const Footer = styled.div`
@@ -31,4 +32,13 @@ export const Footer = styled.div`
 	color: #CCCCCC;
 	border-top: 1px solid #CCCCCC;
 	padding: 20px;
+`;
+
+export const SpinnerWrapper = styled.div`
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	display: flex;
 `;

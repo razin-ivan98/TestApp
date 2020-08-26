@@ -19,9 +19,11 @@ export const Right = styled.div`
 	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;
+	flex-grow: 1;
 	overflow-x: hidden;
 	overflow-y: auto;
 	@media ${devices.mobileL} {
+		flex-grow: 0;
 		order: 3;
 		padding: 0;
 		width: 40%;
@@ -56,4 +58,13 @@ export const Form = styled.div`
 		width: 60%;
 		padding: 0;
 	}
+`;
+
+export const SpinnerWrapper = styled.div`
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	display: flex;
 `;
