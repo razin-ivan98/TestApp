@@ -1,13 +1,11 @@
 import React from "react";
-import PorpTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import { Wrapper } from "./Comment.styled";
 
 const propTypes = {
-
-};
-const defaultProps = {
-
+	date: PropTypes.number,
+	children: PropTypes.node,
 };
 
 const Comment = (props) => {
@@ -26,6 +24,5 @@ const Comment = (props) => {
 };
 
 Comment.propTypes = propTypes;
-Comment.defaultProps = defaultProps;
 
 export default Comment;

@@ -7,9 +7,6 @@ const propTypes = {
 	src: PropTypes.string,
 	onClick: PropTypes.func,
 };
-const defaultProps = {
-
-};
 
 const Image = (props) => {
 	const {
@@ -28,6 +25,5 @@ const Image = (props) => {
 };
 
 Image.propTypes = propTypes;
-Image.defaultProps = defaultProps;
 
 export default Image;

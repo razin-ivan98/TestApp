@@ -8,9 +8,6 @@ const propTypes = {
 	value: PropTypes.string,
 	onChange: PropTypes.func,
 };
-const defaultProps = {
-
-};
 
 const TextInput = (props) => {
 	const {
@@ -24,11 +21,13 @@ const TextInput = (props) => {
 	}
 
 	return (
-		<Wrapper placeholder={placeholder} value={value} onChange={handleChange} />
+		<Wrapper
+			placeholder={placeholder} value={value}
+			onChange={handleChange}
+		/>
 	);
 };
 
 TextInput.propTypes = propTypes;
-TextInput.defaultProps = defaultProps;
 
 export default TextInput;

@@ -15,10 +15,10 @@ import Spinner from "../../core/Spinner";
 import { ModalContent, Right, Image, Form, SpinnerWrapper } from "./ModalImage.styled";
 
 const propTypes = {
-
-};
-const defaultProps = {
-
+	image: PropTypes.string,
+	comments: PropTypes.array,
+	onClose: PropTypes.func,
+	modalLoader: PropTypes.bool,
 };
 
 const ModalImage = (props) => {
@@ -35,25 +35,34 @@ const ModalImage = (props) => {
 	return (
 		<Modal onClose={onClose}>
 			<ModalContent>
-				{modalLoader && <SpinnerWrapper><Spinner /></SpinnerWrapper>}
 				{!modalLoader && (<>
 					<Image src={image}/>
 					<Right>
-						{comments.map((item) => (<Comment id={item.id} key={item.id} date={item.date}>{item.text}</Comment>))}
+						{comments.map((item) => (
+							<Comment id={item.id} key={item.id}
+								date={item.date}>
+									{item.text}
+							</Comment>)
+						)}
 					</Right>
 					<Form>
-						<TextInput value={name} onChange={setName} placeholder="Введите Ваше имя"/>
-						<TextInput value={comment} onChange={setComment} placeholder="Введите Ваш комментарий"/>
+						<TextInput value={name} onChange={setName}
+							placeholder="Введите Ваше имя"
+						/>
+						<TextInput value={comment}
+							onChange={setComment}
+							placeholder="Введите Ваш комментарий"
+						/>
 						<Button>Отправить комментарий</Button>
 					</Form>
 				</>)}
+				{modalLoader && <SpinnerWrapper><Spinner /></SpinnerWrapper>}
 			</ModalContent>
 		</Modal>
 	);
 };
 
 ModalImage.propTypes = propTypes;
-ModalImage.defaultProps = defaultProps;
 
 const mapDispatchToProps = dispatch => {
 	return {

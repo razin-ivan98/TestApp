@@ -19,8 +19,7 @@ export const Header = styled.div`
 
 export const AppInner = styled.div`
 	height: calc(100% - 56px - 56px);
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: hidden;
 	position: relative;
 `;
 
@@ -41,4 +40,11 @@ export const SpinnerWrapper = styled.div`
 	width: 100%;
 	height: 100%;
 	display: flex;
+`;
+export const ButtonWrapper = styled.div`
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	width: 80px;
+	height: 80px;
 `;

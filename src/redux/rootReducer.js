@@ -5,6 +5,4 @@ import modal from "./reducers/modal";
 import galaryLoader from "./reducers/galaryLoader";
 import modalLoader from "./reducers/modalLoader";
 
-
-
 export default combineReducers({images, modal, galaryLoader, modalLoader});
