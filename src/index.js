@@ -20,7 +20,7 @@ window.addEventListener("resize", () => {
 
 const rendered = (
 	<Provider store={store}>
-		<PersistGate loading="lol" persistor={persistor}>
+		<PersistGate loading={null} persistor={persistor}>
 			<App />
 		</PersistGate>
 	</Provider>
