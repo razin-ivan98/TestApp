@@ -3,9 +3,10 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import apiFetchImageWithComments from "../../api/apiFetchImageWithComments";
 
 import { OPEN_MODAL } from "../types";
-import setModal from "../actions/setModal";
-import showModalLoader from "../actions/showModalLoader";
-import hideModalLoader from "../actions/hideModalLoader";
+
+import { setModal, showModalLoader,
+	hideModalLoader, closeModal, showAlert
+} from "../actions";
 
 function* fetchImageWithComments(action) {
 	yield put(setModal({}));
@@ -15,8 +16,9 @@ function* fetchImageWithComments(action) {
 		yield put(setModal(image));
 		yield put(hideModalLoader());
 	} catch (e) {
-		console.log(e);
+		yield put(closeModal());
 		yield put(hideModalLoader());
+		yield put(showAlert({type: "danger", text:"Request Error"}));
 	}
 }
 

@@ -1,26 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 
-import createSagaMiddleware from "redux-saga";
-
-import sagaWatcher from "./redux/sagas";
-
-import rootReducer from "./redux/rootReducer";
+import { PersistGate } from "redux-persist/integration/react";
 
 import App from "./components/common/App";
 
-const saga = createSagaMiddleware();
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(saga)));
+import screenResize from "./redux/actions/screenResize";
 
-saga.run(sagaWatcher);
+import { store, persistor } from "./redux";
+
+window.addEventListener("resize", () => {
+	store.dispatch(screenResize({
+		width: window.innerWidth,
+		height: window.innerHeight
+	}));
+})
 
 const rendered = (
 	<Provider store={store}>
-		<App />
+		<PersistGate loading="lol" persistor={persistor}>
+			<App />
+		</PersistGate>
 	</Provider>
 );
 

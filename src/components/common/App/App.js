@@ -3,14 +3,11 @@ import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 
-import requestImages from "../../../redux/actions/requestImages";
-
 import '../../../global.css';
 
-import { Wrapper, Header, AppInner, Footer, SpinnerWrapper, ButtonWrapper } from "./App.styled";
+import { Wrapper, Header, AppInner, Footer } from "./App.styled";
 
-import Spinner from "../../core/Spinner";
-import Button from "../../core/Button";
+import { Alert } from "../../core";
 
 import ModalImage from "../../common/ModalImage";
 import Galary from "../../common/Galary";
@@ -18,32 +15,24 @@ import Galary from "../../common/Galary";
 const propTypes = {
     onUpdate: PropTypes.func,
     galaryLoader: PropTypes.bool,
+    vh: PropTypes.number,
 };
 
 const App = (props) =>  {
     const {
         modal,
-        galaryLoader,
-        onUpdate,
+        alert,
+        vh,
     } = props;
 
     return (
-        <Wrapper>
+        <Wrapper vh={vh}>
             <Header>
                 Test App
             </Header>
             <AppInner>
+                {alert && <Alert type={alert.type}>{alert.text}</Alert>}
                 <Galary />
-                <ButtonWrapper>
-                    <Button
-                        width="100%" height="100%" border={true}
-                        shape="ellips" onClick={onUpdate}>
-                            Update
-                    </Button>
-                </ButtonWrapper>
-                {galaryLoader && (
-                    <SpinnerWrapper><Spinner /></SpinnerWrapper>
-                )}
             </AppInner>
             <Footer>© 2018-2019</Footer>
             {modal && <ModalImage />}
@@ -53,18 +42,12 @@ const App = (props) =>  {
 
 App.propTypes = propTypes;
 
-const mapDispatchToProps = dispatch => {
-	return {
-		onUpdate: () => {
-			dispatch(requestImages());
-		},
-	}
-};
 const mapStateToProps = state => {
 	return {
         modal: state.modal,
-        galaryLoader: state.galaryLoader,
+        alert: state.alert,
+        vh: state.screen.height,
 	}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);

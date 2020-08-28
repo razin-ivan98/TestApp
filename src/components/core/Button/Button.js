@@ -31,8 +31,8 @@ const Button = (props) => {
 	return (
 		<Wrapper
 			border={border} shape={shape} width={width}
-			height={height} onClick={onClick}>
-			
+			height={height} onClick={onClick}
+		>
 			{children}
 		</Wrapper>
 	);

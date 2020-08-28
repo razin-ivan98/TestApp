@@ -1,4 +1,4 @@
-import { REQUEST_IMAGES, SET_IMAGES } from "../types";
+import { SET_IMAGES } from "../types";
 
 const images = (state = [], action) => {
 	switch (action.type) {

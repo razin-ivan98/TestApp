@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Wrapper } from "./Comment.styled";
 
 const propTypes = {
-	date: PropTypes.number,
 	children: PropTypes.node,
 };
 

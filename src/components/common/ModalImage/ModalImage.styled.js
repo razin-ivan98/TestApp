@@ -8,7 +8,6 @@ export const ModalContent = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	
 
 	@media ${devices.mobileL} {
 		flex-wrap: wrap;
@@ -32,7 +31,7 @@ export const Right = styled.div`
 	}
 `;
 
-export const Image = styled.img.attrs(({ src }) => ({ src }))`
+export const BigImage = styled.img.attrs(({ src }) => ({ src }))`
 	width: 100%;
 	height: auto;
 	object-fit: cover;
@@ -44,7 +43,7 @@ export const Image = styled.img.attrs(({ src }) => ({ src }))`
 	}
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
 	width: 100%;
 	padding: 20px;
 	box-sizing: border-box;

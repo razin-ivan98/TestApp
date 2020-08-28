@@ -7,17 +7,18 @@ export const Background = styled.div`
 	top: 0px;
 	left: 0px;
 	width: 100vw;
-	height: 100vh;
+	height: ${({ vh }) => (vh)}px;
 	background-color: rgba(0,0,0,0.7);
 	z-index: 20;
 	display: flex;
+	overflow: auto;
 `;
 
 export const Wrapper = styled.div`
 	width: 100%;
-	height: 100%;
+	height: ${({ vh }) => (vh)}px;
 	background-color: #ffffff;
-	
+	min-height: 250px;
 	margin: auto;
 	position: relative;
 

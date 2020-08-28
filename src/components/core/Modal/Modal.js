@@ -6,19 +6,19 @@ import { Background, Wrapper, Close } from "./Modal.styled";
 const propTypes = {
 	children: PropTypes.node,
 	onClose: PropTypes.func,
-};
-const defaultProps = {
-
+	vh: PropTypes.number,
 };
 
 const Modal = (props) => {
 	const {
 		children,
-		onClose
+		onClose,
+		vh,
 	} = props;
+
 	return (
-		<Background>
-			<Wrapper>
+		<Background vh={vh}>
+			<Wrapper vh={vh}>
 				<Close onClick={onClose}><span /></Close>
 				{children}
 			</Wrapper>
@@ -27,6 +27,5 @@ const Modal = (props) => {
 };
 
 Modal.propTypes = propTypes;
-Modal.defaultProps = defaultProps;
 
 export default Modal;
